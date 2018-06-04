@@ -25,6 +25,7 @@ public class HelloServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/plain; charset=UTF-8");
 		response.setCharacterEncoding("UTF-8");
+		int iStatus = response.getStatus();
 
 		Connection conn = null;
 		try {
@@ -34,6 +35,7 @@ public class HelloServlet extends HttpServlet {
 		}
 		try (OutputStreamWriter writer = new OutputStreamWriter(response.getOutputStream(), "UTF-8")) {
 			writer.write("Hello World !!");
+			writer.write(“\n\nStatus is: ” + iStatus);
 			writer.write("\n\nJDBC connection available: ");
 			if (conn != null) {
 				writer.write("yes");
