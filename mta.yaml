@@ -2,3 +2,14 @@ ID: scp.mta.java.demo
 _schema-version: '2.1'
 description: Simple MTA JAVA Demo Application
 version: 0.0.1
+
+modules:
+ - name: web
+   type: java
+   path: web
+   parameters:
+      memory: 512M
+   provides:
+    - name: web_api
+      properties:
+         url: ${default-url}
